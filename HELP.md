@@ -11,8 +11,9 @@ REST endpoints for
 * editing author of book
 * deleting a book
 
+Tests using H2 database - in progress...
+
 Next steps:\
-Adding tests & H2 database for test use\
 Adding GraphQL support\
 Adding MongoDB support - instead of Postgres\
 Adding website\
