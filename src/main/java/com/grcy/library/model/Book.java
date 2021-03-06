@@ -1,5 +1,6 @@
 package com.grcy.library.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode
 public class Book {
 
     @Id
