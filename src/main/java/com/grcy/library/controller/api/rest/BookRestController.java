@@ -17,22 +17,28 @@ public class BookRestController {
         this.bookService = bookService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "books/id/{id}")
+    @GetMapping(value = "books/id/{id}")
     public Book getBookById(@PathVariable String id){
         return bookService.getBookById(Long.parseLong(id));
     }
 
-    @RequestMapping(value = "books/")
+    @GetMapping(value = "books/")
     public List<Book> getAllBooks(){
         return bookService.getBooks();
     }
 
     @PostMapping(value = "books/")
     public Book addBook(@RequestBody Book book) {
-        return bookService.addBook(book);
+        return bookService.saveBook(book);
     }
 
-    @RequestMapping(value = "books/updateAuthor")
+    @PutMapping(value = "books/")
+    public Book amendBook(@RequestBody Book book) {
+        return bookService.saveBook(book);
+    }
+
+
+    @PutMapping(value = "books/updateAuthor")
     public Book updateAuthor(@RequestParam(value = "id") String id, @RequestParam(value = "author") String author) {
         return bookService.updateAuthor(Long.valueOf(id), author);
     }
