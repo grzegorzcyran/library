@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
-import java.util.Comparator;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -29,9 +29,11 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    public Book addBook(Book book) {
+    public Book saveBook(Book book) {
 
-        book.setId(bookRepository.getNextSeriesId());
+        if(book.getId() == null) {
+            book.setId(bookRepository.getNextSeriesId());
+        }
         bookRepository.save(book);
         return book;
     }
